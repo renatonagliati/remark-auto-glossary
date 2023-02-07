@@ -1,0 +1,55 @@
+{
+    "name": "@renatonagliati/remark-auto-glossary",
+    "version": "0.1.0",
+    "description": "Remark plugin to assign tooltips with term glossary information",
+    "license": "MIT",
+    "keywords": [
+      "unified",
+      "remark",
+      "remark-plugin",
+      "plugin",
+      "mdast",
+      "markdown",
+      "glossary",
+      "tooltip"
+    ],
+    "repository": "renatonagliati/remark-auto-gloassary",
+    "bugs": "https://github.com/renatonagliati/remark-auto-gloassary/issues",
+    "funding": {
+      "type": "opencollective",
+      "url": "https://opencollective.com/unified"
+    },
+    "author": "Renato Nagliati <renatonagliati@gmail.com> (https://renatonagliati.com)",
+    "contributors": [
+      "Renato Nagliati <renatonagliati@gmail.com> (https://renatonagliati.com)"
+    ],
+    "sideEffects": false,
+    "type": "module",
+    "main": "index.js",
+    "types": "lib/remark-auto-glossary.d.ts",
+    "files": [
+      "index.d.ts",
+      "index.js",
+      "package.json",
+      "lib",
+      "lib/utils"
+    ],
+    "dependencies": {
+      "mdast-util-heading-range": "^2.0.1",
+      "mdast-util-to-string": "^1.0.2",
+      "react-tooltip": "^5.7.4",
+      "mdast-util-mdx-jsx": "^2.1.1"
+    },
+    "devDependencies": {
+      "remark": "14.0.2",
+      "remark-gfm": "3.0.1"      
+    },
+    "scripts": {
+    },
+    "typeCoverage": {
+      "atLeast": 100,
+      "detail": true,
+      "strict": true,
+      "ignoreCatch": true
+    }
+  }
