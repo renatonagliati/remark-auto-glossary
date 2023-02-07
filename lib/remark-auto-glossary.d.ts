@@ -1,5 +1,5 @@
 export type PluginOptions = {
-  yamFile:string,
+  yamlFile:string,
 };
 
 export type GlossaryFileItem = {
