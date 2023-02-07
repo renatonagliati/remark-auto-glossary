@@ -1,6 +1,7 @@
 import { visit } from 'unist-util-visit';
-import { generateTooltip } from './lib/tooltips.js';
 import { yamlFileHandler } from './lib/utils/yaml-file-handler.js';
+import { generateTooltip } from './lib/tooltips.js';
+import { generateGlossary } from './lib/glossary.js';
 
 export default function remarkAutoGlossary(options) {
 
@@ -23,6 +24,21 @@ export default function remarkAutoGlossary(options) {
           ];
         }
       });
+
+      // Handle glossary list
+      visit(ast, 'paragraph', (node, idx, parent) => {
+        if ( typeof node.children === undefined )
+          return;
+
+        node.children.every(node_temp => {
+          const glossary = generateGlossary(glossaryFileContent, node_temp, idx, parent);
+
+          if (false !== glossary) {
+            node.type = 'html';
+            node.value = glossary;
+          }          
+        });
+      });      
 
       // Import libs
       if (hasTooltips) {
