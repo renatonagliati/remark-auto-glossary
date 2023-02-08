@@ -27,7 +27,7 @@ export default function remarkAutoGlossary(options) {
 
       // Handle glossary list
       visit(ast, 'paragraph', (node, idx, parent) => {
-        if ( typeof node.children === undefined )
+        if ( 'undefined' == typeof node || 'undefined' == typeof node.children )
           return;
 
         node.children.every(node_temp => {
