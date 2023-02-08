@@ -6,17 +6,12 @@ This plugin creates tooltips to show more information about terms listed in a ya
 
 ## Installation (for Docusaurus)
 
-On Docusaurus ```package.json``` file, insert the following line inside dependencies. After that, run ```npm install```:
+On Docusaurus ```package.json``` file, insert the following lines inside dependencies section. After that, run ```npm install```:
 
 
 ```bash
+  "react-tooltip": "^5.7.4",
   "@renatonagliati/remark-auto-glossary": "https://github.com/renatonagliati/remark-auto-glossary.git",
-```
-
-If you want to point to a local folder outside Docusaurus project, please install manually ```react-tooltip``` on Docusaurus:
-
-```bash
-  npm install react-tooltip
 ```
 
 
@@ -51,7 +46,7 @@ Use to show a tooltip with details for a term.
 *On the left side of the pipe is the text you want to display. On the right side is the ```termId```.*
 
 - **Glossary:** ```%%RemarkAutoGlossary::list_all%%```
-Use to show a list containing all terms. **Important**: the glossary list must be alone in a line.
+Use to show a list containing all terms. **Important**: the glossary list must be alone in a paragraph.
 *The list is automatically sorted by ascending order based on term property of yaml file.*
 
 
