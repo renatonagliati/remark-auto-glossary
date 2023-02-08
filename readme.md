@@ -65,20 +65,24 @@ div[role="tooltip"] a {
     text-decoration: underline;
 }
 
-/* Change the anchor text color and decoration */
-div[role="tooltip"] a {
-    color: #fff;
-    text-decoration: underline;
-}
-
 /* Change the color of glossary list item name */
 div[itemscope][itemtype*="DefinedTerm"] span[itemprop="name"] {
     color: #424295;
 }
+
+/* Change the color of glossary list item description */
+div[itemscope][itemtype*="DefinedTerm"] span[itemprop="description"] {
+  color: #000000;
+}
+
+/* Change the color of more details div from glossary list item */
+div[itemscope][itemtype*="DefinedTerm"] div.more-details {
+  color: #666666;
+}
 ```
 
 ## Error messages
-- ```ERROR: Remark Auto Glossary plugin requires a "yamlFile" key with a filepath to the .yml file as a value!``` *Failed to read the Yaml file. Please, verify the path.*
+- ```ERROR: Remark Auto Glossary plugin requires a "yamlFile" key with a filepath to the .yml file as a value!``` *Failed to read the Yaml file. Please, verify the path on docusaurus.config.js.*
 
 
 - ```ERROR: Remark Auto Glossary plugin identified inconsistent record(s) in the file yaml file.``` *The Yaml file has inconsistent items. Use the parser https://nodeca.github.io/js-yaml/ to fix it.*
