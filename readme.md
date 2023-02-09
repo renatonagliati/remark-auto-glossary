@@ -6,12 +6,17 @@ This plugin creates tooltips to show more information about terms listed in a ya
 
 ## Installation (for Docusaurus)
 
-On Docusaurus ```package.json``` file, insert the following lines inside dependencies section. After that, run ```npm install```:
+On Docusaurus ```package.json``` file, insert the following line inside dependencies section. After that, run ```npm install```:
 
 
 ```bash
-  "react-tooltip": "^5.7.4",
   "@renatonagliati/remark-auto-glossary": "https://github.com/renatonagliati/remark-auto-glossary.git",
+```
+
+If you want to install this plugin storing it in a local folder outside Docusaurus project, please install ```react-tooltip``` on Docusaurus. For that run:
+
+```bash
+  npm install react-tooltip
 ```
 
 
