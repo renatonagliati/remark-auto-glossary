@@ -1,6 +1,6 @@
 {
     "name": "@renatonagliati/remark-auto-glossary",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "description": "Remark plugin to assign tooltips with term glossary information",
     "license": "MIT",
     "keywords": [
