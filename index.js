@@ -34,27 +34,66 @@ export default function remarkAutoGlossary(options) {
           const glossary = generateGlossary(glossaryFileContent, node_temp, idx, parent);
 
           if (false !== glossary) {
-            node.type = 'html';
-            node.value = glossary;
-          }          
+            node.type = 'mdxJsxTextElement';
+            node.name = 'div';
+            node.children = glossary;
+
+          }
         });
-      });      
+      });
 
       // Import libs
       if (hasTooltips) {
         visit(ast, 'root', (node) => {
-          const libImports = [
-            "import { Tooltip } from 'react-tooltip'",
-            "import 'react-tooltip/dist/react-tooltip.css'"
-          ];
-          libImports.forEach((item) => {
-            node.children.push({
-              type: 'import',
-              value: item
-            });
-          }); 
+          node.children.unshift({
+            type: 'mdxjsEsm',
+            value: "import { Tooltip } from 'react-tooltip';",
+            data: {
+              estree: {
+                type: 'Program',
+                body: [{
+                  type: 'ImportDeclaration',
+                  specifiers: [{
+                    type: 'ImportSpecifier',
+                    imported: {
+                      type: 'Identifier',
+                      name: 'Tooltip'
+                    },
+                    local: {
+                      type: 'Identifier',
+                      name: 'Tooltip'
+                    }
+                  }],
+                  source: {
+                    type: 'Literal',
+                    value: 'react-tooltip'
+                  }
+                }]
+              }
+            }
+          });
+
+          node.children.unshift({
+            type: 'mdxjsEsm',
+            value: "import 'react-tooltip/dist/react-tooltip.css';",
+            data: {
+              estree: {
+                type: 'Program',
+                body: [{
+                  type: 'ImportDeclaration',
+                  specifiers: [],
+                  source: {
+                    type: 'Literal',
+                    value: 'react-tooltip/dist/react-tooltip.css'
+                  }
+                }]
+              }
+            }
+          });
+
         });
-      }
+      }      
+
     }
 
   };
